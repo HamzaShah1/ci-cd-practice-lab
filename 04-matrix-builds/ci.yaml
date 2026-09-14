@@ -1,0 +1,40 @@
+name: Hamza combined
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        python-version: [3.13, 3.14] # took out version 3.15 because it says its not available with linuc arch x64
+
+
+    steps:
+    - name: checkout code
+      uses:  actions/checkout@v2
+
+    - name: setup python
+      uses: actions/setup-python@v2
+      with:
+        python-version: ${{matrix.python-version}}
+
+
+# dependencies not working
+#    - name: install dependencies
+#      run: |
+#        cd 04-matrix-builds
+#        python -m pip install --upgrade pip
+#        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
+
+    - name: run tests
+      run: |
+        cd 04-matrix-builds
+        python -m unittest discover
+
+    - name: notify us of success
+      run: echo "tests passed on python 3.7"
+      if: success()
+
