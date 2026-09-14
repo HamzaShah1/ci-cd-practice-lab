@@ -8,9 +8,9 @@ jobs:
 
     steps:
       - name: checkout code
-      - uses: actions/checkout@v2
-      - run: echo "checked out code"
+        uses: actions/checkout@v2
+        run: echo "checked out code"
 
       - name: print the secret
-      - run: echo "the secret is ${{secret.MY_SECRET}}"
+        run: echo "the secret is ${{secret.MY_SECRET}}"
 
