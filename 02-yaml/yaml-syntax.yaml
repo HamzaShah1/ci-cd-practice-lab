@@ -1,0 +1,16 @@
+# key value pairs
+name: Hamza
+age: 30
+job: developer
+
+# lists
+fruits:
+- apple
+- pear
+- banana
+
+#nested elements
+address:
+  city: London
+  street: 14 downing street
+  country: UK
